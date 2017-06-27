@@ -30,8 +30,6 @@ services:
     networks:
       dev_net_packages:
         ipv4_address: 10.60.0.5
-    extra_hosts:
-      packages-cms.tajawal.local: 10.60.0.100
 
 networks:
   dev_net_packages:

@@ -20,5 +20,3 @@ my_dir="$(dirname "$0")"
 "$my_dir/bin/scripts/create_dir.sh"
 "$my_dir/bin/scripts/mount_shared_drive.sh"
 
-
-touch "$my_dir/gitconfig.conf"
