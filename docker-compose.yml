@@ -1,0 +1,102 @@
+version: '2'
+
+services:
+  php7packages:
+    container_name: dev-php7_packages
+    image: tajawalcom/dev-php7:7.1.5
+    mem_limit: 2g
+    memswap_limit: 2g
+    cpu_shares: 30
+    privileged: true
+    ports:
+      - "2228:22" # ssh
+      - "9008:9003" # supervisor admin
+      - "8118:9110" # php
+    links:
+      - mysqlpackages:mysqlpackages
+    entrypoint: /image/start.sh
+    volumes:
+      - ./bin/php7:/image/
+      - ~/Workspace/:/var/www/
+      - ~/Workspace/data/php-log:/var/log/php
+
+      - ./bin/php7/etc/sshd.conf:/etc/ssh/sshd_config
+
+      - ~/.ssh:/root/.ssh
+      - ./bin/php7/etc/zshrc:/root/.zshrc
+      - ./bin/php7/etc/zsh/aliases.conf:/root/.aliases
+      - ./bin/php7/etc/zsh/extra.conf:/root/.extra
+
+      - ~/.ssh:/home/www-data/.ssh
+      - ./bin/php7/etc/zshrc:/home/www-data/.zshrc
+      - ./bin/php7/etc/zsh/aliases.conf:/home/www-data/.aliases
+      - ./bin/php7/etc/zsh/extra.conf:/home/www-data/.extra
+
+      - ./bin/php7/php/php.ini:/etc/php/7.1/fpm/php.ini
+
+      - ./bin/php7/php/php-fpm.conf:/etc/php/7.1/fpm/php-fpm.conf
+      - ./bin/php7/php/pool:/etc/php/7.1/fpm/pool.d
+
+    networks:
+      dev_net_packages:
+        ipv4_address: 10.60.0.5
+    extra_hosts:
+      packages-cms.tajawal.local: 10.60.0.100
+
+  nginxpackages:
+    container_name: nginx_packages
+    image: nginx:1.13.0-alpine
+    mem_limit: 500m
+    memswap_limit: 500m
+    cpu_shares: 20
+    ports:
+      - "9443:443" # nginx ssl
+      - "94:80"
+    networks:
+      dev_net_packages:
+        ipv4_address: 10.60.0.100
+    volumes:
+      - ./bin/nginx:/image/
+      - ./bin/nginx/files/config/sites-enabled:/etc/nginx/sites-enabled
+      - ./bin/nginx/files/config/site.d:/etc/nginx/site.d
+      - ./bin/nginx/files/config/ssl:/etc/nginx/ssl
+      - ./bin/nginx/files/config/nginx.conf:/etc/nginx/nginx.conf
+      - ~/Workspace/data/nginx-log:/var/log/nginx
+      - ~/Workspace/:/var/www/
+    links:
+      - php7packages:php7packages
+
+  mysqlpackages:
+    container_name: dev_maraidb_packages
+    image: tajawalcom/mariadb:10.1.22-alpine
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpu_shares: 20
+    ports:
+      - "9306:3306"
+    networks:
+      dev_net_packages:
+        ipv4_address: 10.60.0.20
+    volumes:
+      - ./bin/mariadb:/image
+      - ./bin/mariadb/files/my.cnf:/etc/mysql/my.cnf
+      - data-volume:/data
+    entrypoint: /image/run.sh
+    environment:
+      MYSQL_DATABASE: packages_cms
+      MYSQL_USER: packages_cms_user
+      MYSQL_PASSWORD: packages_cms_user_pass
+
+networks:
+  dev_net_packages:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.60.0.0/16
+         gateway: 10.60.0.1
+
+volumes:
+  data-volume:
+
+
+
