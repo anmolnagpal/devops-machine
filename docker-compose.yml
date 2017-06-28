@@ -1,32 +1,30 @@
 version: '2'
 
 services:
-  DevOps:
-    container_name: DevOps
+  devops:
+    container_name: devops
     image: anmolnagpal/devops:1.0.0
     mem_limit: 2g
     memswap_limit: 2g
     cpu_shares: 30
     privileged: true
     ports:
-      - "2228:22" # ssh
-      - "9008:9003" # supervisor admin
+      - "13:22" # ssh
     volumes:
-      - ./bin/php7:/image/
+      - ./bin/devops:/image/
       - ~/Workspace/:/var/www/
-      - ~/Workspace/data/php-log:/var/log/php
-      - ./bin/php7/etc/sshd.conf:/etc/ssh/sshd_config
+      - ~/Workspace/data/devops-log:/var/log
+      - ./bin/deovps/etc/sshd.conf:/etc/ssh/sshd_config
       - ~/.ssh:/root/.ssh
-      - ./bin/php7/etc/zshrc:/root/.zshrc
-      - ./bin/php7/etc/zsh/aliases.conf:/root/.aliases
-      - ./bin/php7/etc/zsh/extra.conf:/root/.extra
+      - ./bin/devops/etc/zshrc:/root/.zshrc
+      - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
+      - ./bin/devops/etc/zsh/extra.conf:/root/.extra
       - ~/.ssh:/home/www-data/.ssh
-      - ./bin/php7/etc/zshrc:/home/www-data/.zshrc
-      - ./bin/php7/etc/zsh/aliases.conf:/home/www-data/.aliases
-      - ./bin/php7/etc/zsh/extra.conf:/home/www-data/.extra
-      - ./bin/php7/php/php.ini:/etc/php/7.1/fpm/php.ini
-      - ./bin/php7/php/php-fpm.conf:/etc/php/7.1/fpm/php-fpm.conf
-      - ./bin/php7/php/pool:/etc/php/7.1/fpm/pool.d
+      - ./bin/devops/etc/zshrc:/home/www-data/.zshrc
+      - ./bin/devops/etc/zsh/aliases.conf:/home/www-data/.aliases
+      - ./bin/devops/etc/zsh/extra.conf:/home/www-data/.extra
+      - ./bin/devops/php/php.ini:/etc/php/7.1/fpm/php.ini
+      - ./bin/devops/php/pool:/etc/php/7.1/fpm/pool.d
     networks:
       dev_net_packages:
         ipv4_address: 10.60.0.5
