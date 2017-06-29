@@ -26,15 +26,15 @@ services:
       - ./bin/devops/php/php.ini:/etc/php/7.1/fpm/php.ini
       - ./bin/devops/php/pool:/etc/php/7.1/fpm/pool.d
     networks:
-      dev_net_packages:
-        ipv4_address: 10.60.0.5
+      dev_net_devops:
+        ipv4_address: 10.13.0.13
 
 networks:
-  dev_net_packages:
+  dev_net_devops:
     driver: bridge
     ipam:
      config:
-       - subnet: 10.60.0.0/16
-         gateway: 10.60.0.1
+       - subnet: 10.13.0.0/16
+         gateway: 10.13.0.1
 
 
