@@ -19,10 +19,10 @@ services:
       - ./bin/devops/etc/zshrc:/root/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/root/.extra
-      - ~/.ssh:/home/www-data/.ssh
-      - ./bin/devops/etc/zshrc:/home/www-data/.zshrc
-      - ./bin/devops/etc/zsh/aliases.conf:/home/www-data/.aliases
-      - ./bin/devops/etc/zsh/extra.conf:/home/www-data/.extra
+      - ~/.ssh:/home/ubuntu/.ssh
+      - ./bin/devops/etc/zshrc:/home/ubuntu/.zshrc
+      - ./bin/devops/etc/zsh/aliases.conf:/home/ubuntu/.aliases
+      - ./bin/devops/etc/zsh/extra.conf:/home/ubuntu/.extra
       - ./bin/devops/php/php.ini:/etc/php/7.1/fpm/php.ini
       - ./bin/devops/php/pool:/etc/php/7.1/fpm/pool.d
     networks:
