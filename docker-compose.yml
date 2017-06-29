@@ -14,7 +14,7 @@ services:
       - ./bin/devops:/image/
       - ~/Workspace/:/var/www/
       - ~/Workspace/data/devops-log:/var/log
-      - ./bin/deovps/etc/sshd.conf:/etc/ssh/sshd_config
+      - ./bin/devops/etc/sshd.conf:/etc/ssh/sshd_config
       - ~/.ssh:/root/.ssh
       - ./bin/devops/etc/zshrc:/root/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
