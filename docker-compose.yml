@@ -3,7 +3,7 @@ version: '2'
 services:
   devops:
     container_name: devops
-    image: anmolnagpal/devops:1.3.0
+    image: anmolnagpal/devops:1.4.0
     mem_limit: 2g
     memswap_limit: 2g
     cpu_shares: 30
