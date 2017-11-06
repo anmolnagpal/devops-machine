@@ -6,4 +6,3 @@
 - PHP
 - Composer
 - Packer
-- 
