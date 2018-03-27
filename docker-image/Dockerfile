@@ -16,17 +16,15 @@ ENV TERRAFORM_VERSION 0.11.5
 ENV DEBIAN_FRONTEND noninteractive
 ####################################
 
-##password less ssh
-##ADD /.ssh/id_rsa  /etc/ssh/ssh_host_rsa_key
-##ADD /.ssh/id_rs.pub /etc/ssh/ssh_host_rsa_key.pub
-#RUN echo 'IdentityFile ~/.ssh/id_rsa' > /etc/ssh/ssh_host_rsa_key
-#RUN echo 'IdentityFile ~/.ssh/id_rsa.pub' > /etc/ssh/ssh_host_rsa_key.pub
+#password less ssh
+ADD ./etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key
+ADD ./etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key.pub
 
 #User
 RUN useradd ubuntu
 RUN passwd -d ubuntu
 RUN passwd -d root
-RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN chmod 600 /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key.pub && echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 RUN echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 RUN chsh -s `which bash` ubuntu
@@ -68,8 +66,8 @@ RUN apt-get install -y      \
 	libssl-dev
 
 # ZSH
-ADD ../etc/install-zsh.sh /root/install-zsh.sh
-ADD ../etc/install-zsh.sh /home/ubuntu/install-zsh.sh
+ADD ./etc/install-zsh.sh /root/install-zsh.sh
+ADD ./etc/install-zsh.sh /home/ubuntu/install-zsh.sh
 RUN chmod +x /root/install-zsh.sh
 RUN chmod +x /home/ubuntu/install-zsh.sh
 RUN sh /root/install-zsh.sh
@@ -79,14 +77,14 @@ RUN rm /root/.zshrc && chsh -s `which zsh` && chsh -s `which zsh` ubuntu && chmo
 #PHP
 RUN add-apt-repository ppa:ondrej/php && apt-get update
 RUN apt-get install -y          \
-    php7.1                      \
-    php7.1-common               \
-    php7.1-cli                  \
-    php7.1-curl                 \
-    php7.1-json                 \
-    php7.1-bz2                  \
-    php7.1-xml                  \
-    php7.1-zip                  \
+    php7.2                      \
+    php7.2-common               \
+    php7.2-cli                  \
+    php7.2-curl                 \
+    php7.2-json                 \
+    php7.2-bz2                  \
+    php7.2-xml                  \
+    php7.2-zip                  \
     pkg-config
 
 RUN phpenmod curl
