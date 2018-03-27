@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/devops-machine
+
+    steps:
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+      # - setup_remote_docker
+      - run:
+          name: Build ejabberd container
+          command: |
+            set -x
+            docker-compose up -d
+      - run:
+          name: Wait for container to boot up
+          command: sleep 30
+      - run:
+          name: Run tests
+          command: ./scripts/runtests.sh
+      - run:
+          name: Destory container
+          command: |
+            set -x
+            docker-compose down
