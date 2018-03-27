@@ -16,15 +16,17 @@ ENV TERRAFORM_VERSION 0.11.5
 ENV DEBIAN_FRONTEND noninteractive
 ####################################
 
-#password less ssh
-ADD ./etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key
-ADD ./etc/ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key.pub
+##password less ssh
+##ADD /.ssh/id_rsa  /etc/ssh/ssh_host_rsa_key
+##ADD /.ssh/id_rs.pub /etc/ssh/ssh_host_rsa_key.pub
+#RUN echo 'IdentityFile ~/.ssh/id_rsa' > /etc/ssh/ssh_host_rsa_key
+#RUN echo 'IdentityFile ~/.ssh/id_rsa.pub' > /etc/ssh/ssh_host_rsa_key.pub
 
 #User
 RUN useradd ubuntu
 RUN passwd -d ubuntu
 RUN passwd -d root
-RUN chmod 600 /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key.pub && echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN echo "PermitEmptyPasswords yes" >> /etc/ssh/sshd_config && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 RUN echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 RUN chsh -s `which bash` ubuntu
@@ -57,7 +59,7 @@ RUN apt-get install -y      \
 	sysvbanner             \
 	htop                   \
 	python-pip             \
-	python3-pip             \
+	python3-pip            \
 	wget                   \
 	ca-certificates        \
 	openssl                \
@@ -66,8 +68,8 @@ RUN apt-get install -y      \
 	libssl-dev
 
 # ZSH
-ADD ./etc/install-zsh.sh /root/install-zsh.sh
-ADD ./etc/install-zsh.sh /home/ubuntu/install-zsh.sh
+ADD ../etc/install-zsh.sh /root/install-zsh.sh
+ADD ../etc/install-zsh.sh /home/ubuntu/install-zsh.sh
 RUN chmod +x /root/install-zsh.sh
 RUN chmod +x /home/ubuntu/install-zsh.sh
 RUN sh /root/install-zsh.sh
