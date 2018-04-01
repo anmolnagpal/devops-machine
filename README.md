@@ -1,3 +1,5 @@
+# DevOps Machine (Docker)
+
 ## 1. Installing the tools
 
 ##### 1.1 - first you need to install Homebrew and Cask, you can do so by running following commands in sequence 
