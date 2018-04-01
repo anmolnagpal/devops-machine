@@ -5,12 +5,7 @@
 ##### 1.1 - first you need to install Homebrew and Cask, you can do so by running following commands in sequence 
 
 ```
-xcode-select --install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor //this is just to make sure Homebrew installed successfully
- 
-brew tap caskroom/cask
-brew install cask
+make brew
 ```
 ##### 1.2 - then you need to install virtualbox, since our docker's setup relies on a virtual machine that is powered
  by 
