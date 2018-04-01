@@ -93,11 +93,10 @@ ssh ubuntu@102.168.99.100 -p 13
 ```
 ## ☑ Tools Added
 - [X] PHP
-- [X] Terraform
 - [X] Packer
-- [X] Ansible
 - [X] Python
-
+- [X] Ansible
+- [X] Terraform
 ## ☑ TODO
 
 - [ ] Add other devops toolsg
