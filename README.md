@@ -7,9 +7,7 @@
 ```
 make brew
 ```
-##### 1.2 - then you need to install virtualbox, since our docker's setup relies on a virtual machine that is powered
- by 
-virtualbox,
+##### 1.2 - then you need to install virtualbox, since our docker's setup relies on a virtual machine that is poweredby virtualbox,
 
 if you have it installed you can skip this step otherwise open up your terminal and run this command:
 
