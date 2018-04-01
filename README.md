@@ -61,3 +61,17 @@ Make sure that you are at master branch & have updated code
 git checkout master && git pull origin master
 ```
 
+## ☑ TODO
+
+- [] Add proper readbme  
+- [] Add other devops tools
+
+
+
+## 👬 Contribution
+
+- Open pull request with improvements
+- Discuss ideas in issues
+- Spread the word
+- Reach out with any feedback [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/anmol_nagpal
+.svg?style=social&label=Follow%20%40kamranahmedse)](https://twitter.com/anmol_nagpal)
