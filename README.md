@@ -60,6 +60,19 @@ Make sure that you are at master branch & have updated code
 ```
 git checkout master && git pull origin master
 ```
+## 3- Creating the virtual machine:
+
+##### 3.1 - to create the virtual machine with the name dev using the following command
+
+```
+make create-vbox 
+```
+
+##### 3.2 Now lets make sure that the machine is running
+
+```
+make start
+```
 
 ## ☑ TODO
 

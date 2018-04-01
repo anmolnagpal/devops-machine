@@ -92,8 +92,10 @@ kill:
 	@docker-compose  kill
 
 ## Docker compose up
-up:
+start:
 	@docker-machine start dev || true
+
+up:
 	@docker-compose  up
 
 ## Create dev-machine "boot2docker" driver virtualbox
