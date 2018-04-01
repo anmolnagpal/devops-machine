@@ -36,3 +36,25 @@ brew install docker-credential-helper
 
 ##2- Prepare the workspace:
 
+#####2.1 - to create the workspace directory run the following command
+
+```
+mkdir ~/Workspace
+```
+now lets cd in
+```
+cd ~/Workspace
+```
+now lets clone the devops-machine repository.
+```
+git clone https://github.com/anmolnagpal/devops-machine
+```
+cd to it 
+```
+cd devops-machine
+```
+Make sure that you are at master branch & have updated code 
+```
+git checkout master && git pull origin master
+```
+
