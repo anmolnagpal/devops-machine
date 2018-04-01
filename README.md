@@ -92,7 +92,7 @@ make up
 ssh ubuntu@102.168.99.100 -p 13
 ```
 ## ☑ Tools Added
-- [X] PHP 7.2.3
+- [X] PHP
 - [X] Terraform
 - [X] Packer
 - [X] Ansible
