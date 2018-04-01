@@ -80,7 +80,17 @@ make start
 make prepare
 ```
 
+##### 3.4 - Now lets bring the devops machine up
 
+```
+make up
+```
+
+##### 3.4 - Lets do the ssh into the  devops machinea and start automation the things ;)
+
+```
+ssh ubuntu@102.168.99.100 -p 13
+```
 ## ☑ TODO
 
 - [] Add proper readbme  
