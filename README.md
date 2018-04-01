@@ -74,7 +74,8 @@ make create-vbox
 make start
 ```
 
-##### 3.3 - now lets create the projects directories and mount them properly to NFS file system plus adding their DNS info to the hosts file
+##### 3.3 - Now lets create the projects directories and mount them properly to NFS file system plus adding their DNS
+ info to the hosts file
 
 ```
 make prepare
