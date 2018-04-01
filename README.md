@@ -91,12 +91,10 @@ make up
 ```
 ssh ubuntu@102.168.99.100 -p 13
 ```
+
 ## ☑ TODO
 
-- [] Add proper readbme  
-- [] Add other devops tools
-
-
+- [] Add other devops toolsg
 
 ## 👬 Contribution
 
