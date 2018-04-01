@@ -97,6 +97,7 @@ ssh ubuntu@102.168.99.100 -p 13
 - [X] Python
 - [X] Ansible
 - [X] Terraform
+
 ## ☑ TODO
 
 - [ ] Add other devops toolsg
