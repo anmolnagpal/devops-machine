@@ -27,11 +27,9 @@ my_dir="$(dirname "$0")"
 
 PY=`which python`
 $PY $my_dir/tasks.py github
-#$PY $my_dir/tasks.py
+
 echo
 "$my_dir/misc.sh"
-echo
-"$my_dir/update_hosts.sh"
 echo
 "$my_dir/mount_shared_drive.sh"
 echo

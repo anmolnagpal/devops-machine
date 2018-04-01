@@ -42,11 +42,11 @@ brew install docker-credential-helper
 ##### 2.1 - to create the workspace directory run the following command
 
 ```
-mkdir ~/Workspace
+mkdir ~/workspace
 ```
 now lets cd in
 ```
-cd ~/Workspace
+cd ~/workspace
 ```
 now lets clone the devops-machine repository.
 ```
