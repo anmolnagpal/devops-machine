@@ -3,7 +3,7 @@ version: '2'
 services:
   devops:
     container_name: devops
-    image: anmolnagpal/devops:1.7.0
+    image: anmolnagpal/devops:{{DRONE_JOB_NUMBER}}
     mem_limit: 3g
     memswap_limit: 3g
     cpu_shares: 30
