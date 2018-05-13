@@ -7,6 +7,7 @@
 
 <hr />
 [![CircleCI](https://circleci.com/gh/anmolnagpal/devops-machine.svg?style=svg)](https://circleci.com/gh/anmolnagpal/devops-machine)
+
 ## 1. Installing the tools
 
 ##### 1.1 - first you need to install Homebrew and Cask, you can do so by running following commands in sequence 
