@@ -16,6 +16,7 @@ services:
   - docker
 
 before_install:
+- cd docker-image
 - docker build -t devops .
 - docker run -d --name devops devops
 - docker ps -a
