@@ -11,7 +11,7 @@ jobs:
           command: docker build -t anmolnagpal/devops:latest ./docker-image/.
       - run:
           name: bring container up and running
-          command: docker run -d  anmolnagpal/devops:latest
+          command: docker run --name devops -d anmolnagpal/devops:latest
       - run:
           name: Wait for container to boot up
           command: sleep 10
