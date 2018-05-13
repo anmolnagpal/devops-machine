@@ -8,4 +8,4 @@ jobs:
       - checkout
       - run:
           name: build the application image
-          command: docker build -t anmolnagpal/devops:latest ../docker-image/.
+          command: docker build -t anmolnagpal/devops:latest ./docker-image/.
