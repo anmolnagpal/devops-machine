@@ -10,6 +10,8 @@ ENV PHP_MAJOR 7.2
 ENV PACKER_MAJOR 1.2
 ENV TERRAFORM_MAJOR 0.11
 ENV ANSIBLE_MAJOR 2.5
+ENV LINT_VERSION 3.5.0rc1
+ENV REVIEW_VERSION 0.13.4
 ###
 ENV PHP_VERSION 7.2.5
 ENV PACKER_VERSION 1.2.3
@@ -95,8 +97,15 @@ RUN phpenmod curl
 #Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#Python with Packages
-RUN pip3 install --upgrade bumpversion pip awscli mongotail ansible==${ANSIBLE_VERSION}
+##Python with Packages
+RUN pip3 install ansible==${ANSIBLE_VERSION} \
+                 ansible-lint==${LINT_VERSION} \
+                 ansible-review==${REVIEW_VERSION} \
+                 awscli \
+                 mongotail \
+                 bumpversion \
+                 pip \
+                 yamllint
 
 #Terraform
 RUN cd /tmp && \
