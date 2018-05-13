@@ -25,5 +25,5 @@ jobs:
       - run:
           hub:
           command:
-          - docker login -u $u -p $p
-          - docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
+            docker login -u $u -p $p
+            docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
