@@ -97,7 +97,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 #Python with Packages
 RUN pip3 install --upgrade bumpversion pip awscli mongotail
 
+#Ansible
 RUN pip3 install ansible==${ANSIBLE_VERSION}
+
 #Terraform
 RUN cd /tmp && \
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
