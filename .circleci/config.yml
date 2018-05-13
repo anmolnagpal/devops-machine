@@ -22,3 +22,8 @@ jobs:
             docker exec devops /bin/bash -c 'terraform version'
             docker exec devops /bin/bash -c 'ansible --version'
             docker exec devops /bin/bash -c 'packer version'
+      - run:
+          name: wait for container to boot up
+          command: |
+            docker login -u $u -p $p
+            docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
