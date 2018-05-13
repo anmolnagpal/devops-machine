@@ -24,6 +24,6 @@ jobs:
             docker exec devops /bin/bash -c 'packer version'
       - run:
           name: push to docker hub
-          commands:
-          - docker login -u $u -p $p
-          - docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
+          commands: |
+            docker login -u $u -p $p
+            docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
