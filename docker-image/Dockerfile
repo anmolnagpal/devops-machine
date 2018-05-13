@@ -63,6 +63,7 @@ RUN apt-get install -y      \
 	wget                   \
 	ca-certificates        \
 	openssl                \
+	yamllint               \
 	inetutils-ping         \
 	telnet                 \
 	libssl-dev
