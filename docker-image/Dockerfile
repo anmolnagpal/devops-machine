@@ -9,10 +9,12 @@ ENV LC_ALL en_US.UTF-8
 ENV PHP_MAJOR 7.2
 ENV PACKER_MAJOR 1.2
 ENV TERRAFORM_MAJOR 0.11
+ENV ANSIBLE_MAJOR 2.5
 ###
-ENV PHP_VERSION 7.2.3
-ENV PACKER_VERSION 1.2.1
-ENV TERRAFORM_VERSION 0.11.5
+ENV PHP_VERSION 7.2.5
+ENV PACKER_VERSION 1.2.3
+ENV TERRAFORM_VERSION 0.11.7
+ENV ANSIBLE_VERSION 2.5.2
 ENV DEBIAN_FRONTEND noninteractive
 ####################################
 
@@ -93,8 +95,9 @@ RUN phpenmod curl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 #Python with Packages
-RUN pip3 install --upgrade bumpversion pip ansible awscli mongotail
+RUN pip3 install --upgrade bumpversion pip awscli mongotail
 
+RUN pip3 install ansible==${ANSIBLE_VERSION}
 #Terraform
 RUN cd /tmp && \
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
