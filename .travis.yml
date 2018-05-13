@@ -1,9 +1,18 @@
 sudo: required
 
-language: ruby
+language: python
 
 services:
   - docker
 
 before_install:
-  - docker build -t anmolnagpal/devops:latest ./docker-image/ .
+- docker build -t devops .
+- docker run -d --name devops devops
+- docker ps -a
+
+script:
+- docker exec devops terraform --version
+
+
+after_script:
+- docker rm -f devops
