@@ -7,5 +7,3 @@ services:
 
 before_install:
   - docker build -t anmolnagpal/devops:latest .
-
-=
