@@ -3,7 +3,7 @@ version: '2'
 services:
   devops:
     container_name: devops
-    build: ./docker-image
+    image: anmolnagpal/devops:1.7.0
     mem_limit: 3g
     memswap_limit: 3g
     cpu_shares: 30
