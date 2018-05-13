@@ -1,5 +1,5 @@
 # Pull base image.
-FROM phusion/baseimage:0.10.0
+FROM phusion/baseimage:0.10.1
 MAINTAINER Anmol Nagpal <ianmolnagpal@gmail.com>
 
 #####################################
