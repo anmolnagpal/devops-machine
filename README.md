@@ -6,7 +6,8 @@
 <p align="center" style="font-size: 1.2rem;"> DevOps machine using docker </p>
 
 <hr />
-[![CircleCI](https://circleci.com/gh/anmolnagpal/devops-machine.svg?style=svg)](https://circleci.com/gh/anmolnagpal/devops-machine)
+
+[![CircleCI](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master.svg?style=svg)](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master)
 
 ## 1. Installing the tools
 
