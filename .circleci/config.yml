@@ -13,10 +13,10 @@ jobs:
           name: bring container up and running
           command: docker run --name devops -d anmolnagpal/devops:latest
       - run:
-          name: Wait for container to boot up
+          name: wait for container to boot up
           command: sleep 10
       - run:
-          name: Sanity Check
+          name: sanity check
           command: |
             docker exec devops /bin/bash -c 'php -v'
             docker exec devops /bin/bash -c 'terraform version'
