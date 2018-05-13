@@ -9,3 +9,16 @@ jobs:
       - run:
           name: build the application image
           command: docker build -t anmolnagpal/devops:latest ./docker-image/.
+      - run:
+          name: bring container up and running
+          command: docker run -d  anmolnagpal/devops:latest
+      - run:
+          name: Wait for container to boot up
+          command: sleep 10
+      - run:
+          name: Sanity Check
+          command: |
+            docker exec devops /bin/bash -c 'php -v'
+            docker exec devops /bin/bash -c 'terraform version'
+            docker exec devops /bin/bash -c 'ansible --version'
+            docker exec devops /bin/bash -c 'packer version'
