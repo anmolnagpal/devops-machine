@@ -1,4 +1,11 @@
-# DevOps Machine (Docker)
+
+
+<h1 align="center">
+    DevOps Machine 
+</h1>
+<p align="center" style="font-size: 1.2rem;"> DevOps machine using docker </p>
+
+<hr />
 
 ## 1. Installing the tools
 
