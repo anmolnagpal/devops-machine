@@ -96,10 +96,7 @@ RUN phpenmod curl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 #Python with Packages
-RUN pip3 install --upgrade bumpversion pip awscli mongotail
-
-#Ansible
-RUN pip3 install ansible==${ANSIBLE_VERSION}
+RUN pip3 install --upgrade bumpversion pip awscli mongotail ansible==${ANSIBLE_VERSION}
 
 #Terraform
 RUN cd /tmp && \
