@@ -95,8 +95,8 @@ kill:
 ## Docker compose up
 start:
 	@docker-machine start dev || true
-	@eval "$(docker-machine env dev)"
-	@docker-compose  up
+	@eval "$(@docker-machine env dev)"
+	@docker-compose  up -d
 
 ## Docker ssh kill
 ssh:
