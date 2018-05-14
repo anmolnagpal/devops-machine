@@ -95,9 +95,12 @@ kill:
 ## Docker compose up
 start:
 	@docker-machine start dev || true
-
-up:
+	@eval "$(docker-machine env dev)"
 	@docker-compose  up
+
+## Docker ssh kill
+ssh:
+	@ssh ubuntu@192.168.99.100 -p 13
 
 ## Create dev-machine "boot2docker" driver virtualbox
 create-vbox:
