@@ -67,7 +67,6 @@ brew:
 	@brew tap homebrew/dupes
 	@brew tap homebrew/php
 	@brew tap caskroom/cask
-    @brew install cask
 
 ## Prepare dev-machine / nfs mounting, hosts file, etc...
 prepare:
@@ -96,9 +95,12 @@ kill:
 ## Docker compose up
 start:
 	@docker-machine start dev || true
+	@eval "$(@docker-machine env dev)"
+	@docker-compose  up -d
 
-up:
-	@docker-compose  up
+## Docker ssh kill
+ssh:
+	@ssh ubuntu@192.168.99.100 -p 13
 
 ## Create dev-machine "boot2docker" driver virtualbox
 create-vbox:
