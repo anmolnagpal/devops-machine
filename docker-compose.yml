@@ -16,10 +16,10 @@ services:
       - ~/Workspace/data/devops-log:/var/log
       - ./bin/devops/etc/sshd.conf:/etc/ssh/sshd_config
       - ~/.ssh:/root/.ssh
+      - ~/.ssh:/home/ubuntu/.ssh
       - ./bin/devops/etc/zshrc:/root/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/root/.extra
-      - ~/.ssh:/home/ubuntu/.ssh
       - ./bin/devops/etc/zshrc:/home/ubuntu/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/home/ubuntu/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/home/ubuntu/.extra
