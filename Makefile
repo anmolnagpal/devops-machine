@@ -67,7 +67,7 @@ brew:
 	@brew tap homebrew/dupes
 	@brew tap homebrew/php
 	@brew tap caskroom/cask
-    @brew install cask
+
 
 ## Prepare dev-machine / nfs mounting, hosts file, etc...
 prepare:
