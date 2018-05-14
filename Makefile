@@ -68,7 +68,6 @@ brew:
 	@brew tap homebrew/php
 	@brew tap caskroom/cask
 
-
 ## Prepare dev-machine / nfs mounting, hosts file, etc...
 prepare:
 	@sudo ./script/prepare.sh
