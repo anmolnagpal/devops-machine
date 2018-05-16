@@ -12,12 +12,8 @@ services:
       - "13:22" # ssh
     volumes:
       - ./bin/devops:/image/
-      - ~/Workspace/:/var/www/
       - ~/Workspace/data/devops-log:/var/log
       - ./bin/devops/etc/sshd.conf:/etc/ssh/sshd_config
-      - ~/.ssh:/root/.ssh
-      - ~/.ssh:/home/ubuntu/.ssh
-      - ~/.zsh_history:/home/ubuntu/.zsh_history
       - ./bin/devops/etc/zshrc:/root/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/root/.extra
@@ -26,6 +22,10 @@ services:
       - ./bin/devops/etc/zsh/extra.conf:/home/ubuntu/.extra
       - ./bin/devops/php/php.ini:/etc/php/7.1/fpm/php.ini
       - ./bin/devops/php/pool:/etc/php/7.1/fpm/pool.d
+      - ~/Workspace/:/var/www/
+      - ~/.ssh:/root/.ssh
+      - ~/.ssh:/home/ubuntu/.ssh
+      - ~/.zsh_history:/home/ubuntu/.zsh_history
     networks:
       dev_net_devops:
         ipv4_address: 10.13.0.13
