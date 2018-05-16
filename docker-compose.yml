@@ -17,6 +17,7 @@ services:
       - ./bin/devops/etc/sshd.conf:/etc/ssh/sshd_config
       - ~/.ssh:/root/.ssh
       - ~/.ssh:/home/ubuntu/.ssh
+      - ~/.zsh_history:/home/ubuntu/.zsh_history
       - ./bin/devops/etc/zshrc:/root/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/root/.extra
