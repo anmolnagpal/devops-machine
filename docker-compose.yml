@@ -26,6 +26,7 @@ services:
       - ~/.ssh:/root/.ssh
       - ~/.ssh:/home/ubuntu/.ssh
       - ~/.zsh_history:/home/ubuntu/.zsh_history
+      - ~/.gitconfig:/home/ubuntu/.gitconfig
     networks:
       dev_net_devops:
         ipv4_address: 10.13.0.13
