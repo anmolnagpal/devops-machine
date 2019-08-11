@@ -9,7 +9,7 @@
 
 [![CircleCI](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master.svg?style=svg)](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master)
 
-##### 1.0 Install docker
+##### 1.0 - Install Docker
 
 if you have it installed you can skip this step otherwise  run this command:
 
@@ -17,7 +17,7 @@ if you have it installed you can skip this step otherwise  run this command:
 brew install docker docker-compose
 ```
 
-## 2- Prepare the workspace:
+## 2- Prepare the Workspace:
 
 ##### 2.0 - to create the workspace directory run the following command
 
@@ -31,9 +31,6 @@ cd ~/workspace
 now lets clone the devops-machine repository.
 ```
 git clone https://github.com/anmolnagpal/devops-machine
-```
-cd to it 
-```
 cd devops-machine
 ```
 Make sure that you are at master branch & have updated code 
