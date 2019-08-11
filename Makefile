@@ -52,33 +52,7 @@ PWD := $(shell pwd)
 
 .DEFAULT_GOAL := help
 
-.PHONY : help rtfm
-.PHONY : brew install upgrade prepare up
-.PHONY : clean rmdata down stop kill debug_dir
-.PHONY : create-vbox create-xhyve rm-machine
-
-## SEE RTFM @ https://en.wikipedia.org/wiki/RTFM
-rtfm:
-
-## Install brew and taps
-brew:
-	@${CURL} -o ./_makescript/tmp/brew-install -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install
-	@/usr/bin/ruby ./_makescript/tmp/brew-install
-	@brew tap homebrew/dupes
-	@brew tap homebrew/php
-	@brew tap caskroom/cask
-
-## Prepare dev-machine / nfs mounting, hosts file, etc...
-prepare:
-	@sudo ./script/prepare.sh
-
-## Clean all docker data / reset all symlinks, etc..
-clean:
-	@./script/clean.sh
-
-## Remove docker data folder
-rmdata:
-	@docker-compose  down
+.PHONY : help
 
 ## Docker compose down
 down:
@@ -94,38 +68,11 @@ kill:
 
 ## Docker compose up
 start:
-	@docker-machine start dev || true
-	@eval "$(@docker-machine env dev)"
 	@docker-compose  up -d
 
 ## Docker ssh kill
 ssh:
-	@ssh ubuntu@192.168.99.100 -p 13
-
-## Create dev-machine "boot2docker" driver virtualbox
-create-vbox:
-	@docker-machine create --driver virtualbox --virtualbox-cpu-count 4 --virtualbox-memory "8096" --virtualbox-disk-size "20000" dev
-
-## Create dev-machine "boot2docker" driver xhyve
-create-xhyve:
-	@docker-machine create --driver xhyve --xhyve-cpu-count 4 --xhyve-memory-size "8096" --xhyve-disk-size "20000" dev
-
-## Remove dev-machine "boot2docker"
-rm-machine:
-	@docker-machine rm -f -y dev
-
-
-## Print current directory related info
-debug_dir:
-	@echo MAKEFILE_LIST=$(MAKEFILE_LIST)
-	@echo MAKEFILE_LIST=$(value MAKEFILE_LIST)
-	@echo MAKEFILE_LIST_LASTWORD=$(MAKEFILE_LIST_LASTWORD)
-	@echo MAKEFILE_PATH=$(MAKEFILE_PATH)
-	@echo MAKEFILE_DIR=$(MAKEFILE_DIR)
-	@echo MAKEFILE_DIR_PATSUBST=$(MAKEFILE_DIR_PATSUBST)
-	@echo CURRENT_DIR=$(CURRENT_DIR)
-	@echo CURRENT_DIR_NOSLASH=$(CURRENT_DIR_NOSLASH)
-	@echo CURRENT_DIR_NAME=$(CURRENT_DIR_NAME)
+	@ssh ubuntu@127.0.0.1 -p 1310
 
 ################################################################################
 # Help
