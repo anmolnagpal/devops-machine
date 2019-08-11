@@ -9,6 +9,8 @@
 
 [![CircleCI](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master.svg?style=svg)](https://circleci.com/gh/anmolnagpal/devops-machine/tree/master)
 
+## 1- Prepare machine:
+
 ##### 1.0 - Install Docker
 
 if you have it installed you can skip this step otherwise  run this command:
