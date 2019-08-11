@@ -58,16 +58,8 @@ PWD := $(shell pwd)
 down:
 	@docker-compose  down
 
-## Docker compose stop
-stop:
-	@docker-compose  stop
-
-## Docker compose kill
-kill:
-	@docker-compose  kill
-
 ## Docker compose up
-start:
+up:
 	@docker-compose  up -d
 
 ## Docker ssh kill
