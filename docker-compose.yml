@@ -1,29 +1,23 @@
-version: '2'
+version: '2.1'
 
 services:
   devops:
     container_name: devops
-    image: anmolnagpal/devops-machine:1.8.4
+    image: anmolnagpal/devops-machine:0.0.1
     mem_limit: 3g
     memswap_limit: 3g
     cpu_shares: 30
     privileged: true
     ports:
-      - "13:22" # ssh
+      - "1310:22" # ssh
     volumes:
       - ./bin/devops:/image/
       - ~/Workspace/data/devops-log:/var/log
       - ./bin/devops/etc/sshd.conf:/etc/ssh/sshd_config
-      - ./bin/devops/etc/zshrc:/root/.zshrc
-      - ./bin/devops/etc/zsh/aliases.conf:/root/.aliases
-      - ./bin/devops/etc/zsh/extra.conf:/root/.extra
       - ./bin/devops/etc/zshrc:/home/ubuntu/.zshrc
       - ./bin/devops/etc/zsh/aliases.conf:/home/ubuntu/.aliases
       - ./bin/devops/etc/zsh/extra.conf:/home/ubuntu/.extra
-      - ./bin/devops/php/php.ini:/etc/php/7.1/fpm/php.ini
-      - ./bin/devops/php/pool:/etc/php/7.1/fpm/pool.d
       - ~/Workspace/:/var/www/
-      - ~/.ssh:/root/.ssh
       - ~/.ssh:/home/ubuntu/.ssh
       - ~/.zsh_history:/home/ubuntu/.zsh_history
       - ~/.gitconfig:/home/ubuntu/.gitconfig
