@@ -21,16 +21,13 @@ brew install docker docker-compose
 
 ## 2- Prepare the Workspace:
 
-##### 2.0 - to create the workspace directory run the following command
+##### 2.0 - to create the workspace directory run the following command 
 
 ```
 mkdir ~/workspace
-```
-now lets cd in
-```
 cd ~/workspace
 ```
-now lets clone the devops-machine repository.
+now lets clone the devops-machine repository
 ```
 git clone https://github.com/anmolnagpal/devops-machine
 cd devops-machine
