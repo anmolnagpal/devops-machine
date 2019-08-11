@@ -8,10 +8,10 @@ jobs:
       - checkout
       - run:
           name: build the application image
-          command: docker build -t anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM ./docker-image/.
+          command: docker build -t anmolnagpal/devops:0.0.$CIRCLE_BUILD_NUM ./docker-image/.
       - run:
           name: bring container up and running
-          command: docker run --name devops -d anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
+          command: docker run --name devops -d anmolnagpal/devops:0.0.$CIRCLE_BUILD_NUM
       - run:
           name: wait for container to boot up
           command: sleep 10
@@ -26,4 +26,4 @@ jobs:
           hub:
           command: |
             docker login -u $u -p $p
-            docker push anmolnagpal/devops:1.9.$CIRCLE_BUILD_NUM
+            docker push anmolnagpal/devops:0.0.$CIRCLE_BUILD_NUM
