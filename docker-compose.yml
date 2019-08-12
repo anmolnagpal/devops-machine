@@ -18,6 +18,7 @@ services:
       - ./bin/devops/etc/zsh/extra.conf:/home/ubuntu/.extra
       - ~/Workspace:/home/ubuntu/workspace
       - ~/.ssh:/home/ubuntu/.ssh
+      - ~/.aws:/home/ubuntu/.aws
       - ~/.zsh_history:/home/ubuntu/.zsh_history
       - ~/.gitconfig:/home/ubuntu/.gitconfig
     networks:
